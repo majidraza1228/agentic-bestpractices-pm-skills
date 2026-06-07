@@ -118,6 +118,7 @@ The `skills/*/SKILL.md` files follow the universal skill format and work with an
 
 | Tool | How to use | What works |
 |------|-----------|------------|
+| **GitHub Copilot** | `.github/copilot-instructions.md` is auto-loaded as context — index of all skills and commands with file paths is already included | Skills only |
 | **Gemini CLI** | Copy skill folders to `.gemini/skills/` | Skills only |
 | **OpenCode** | Copy skill folders to `.opencode/skills/` | Skills only |
 | **Cursor** | Copy skill folders to `.cursor/skills/` | Skills only |
