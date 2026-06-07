@@ -27,7 +27,7 @@ If this project helps you, ⭐ the repo.
 
 Generic AI gives you text. PM Skills Marketplace gives you structure.
 
-Each skill encodes a proven PM framework — AI rollout planning, discovery, assumption mapping, prioritization, strategy — and walks you through it step by step. You get the rigor of Teresa Torres, Marty Cagan, and Alberto Savoia built into your daily workflow, not sitting on a bookshelf.
+Each skill encodes a proven PM framework — AI rollout planning, discovery, assumption mapping, prioritization, strategy — and walks you through it step by step. Structured methodology built into your daily workflow.
 
 The result: better product decisions, not just faster documents. And for PMs accountable for AI adoption, a structured path from pilot to governance to measurable ROI.
 
@@ -184,7 +184,7 @@ Commands:
 - `prioritize-assumptions` — Prioritize assumptions using an Impact × Risk matrix with experiment suggestions
 - `prioritize-features` — Prioritize a feature backlog based on impact, effort, risk, and strategic alignment
 - `analyze-feature-requests` — Analyze and categorize customer feature requests by theme and strategic fit
-- `opportunity-solution-tree` — Build an Opportunity Solution Tree (Teresa Torres) — outcome → opportunities → solutions → experiments
+- `opportunity-solution-tree` — Build an Opportunity Solution Tree — outcome → opportunities → solutions → experiments
 - `interview-script` — Create a structured customer interview script with JTBD probing questions
 - `summarize-interview` — Summarize an interview transcript into JTBD, satisfaction signals, and action items
 - `metrics-dashboard` — Design a product metrics dashboard with North Star, input metrics, and alert thresholds
@@ -510,26 +510,25 @@ A ready-to-use HTML dashboard starter lives in [`templates/html-prototype/`](tem
 
 ---
 
+## GitHub Copilot
+
+This marketplace works with GitHub Copilot via `.github/copilot-instructions.md`, which Copilot Chat loads automatically as context for every session in this repo.
+
+**What Copilot gets:** a full index of all 73 skills and 45 commands with file paths, and instructions to read the relevant `SKILL.md` before answering PM questions and to follow command files step-by-step for workflows.
+
+**How to use it in Copilot Chat:**
+
+> "Help me build a Lean Canvas for my SaaS idea"
+> → Copilot reads `pm-product-strategy/skills/lean-canvas/SKILL.md` and applies the framework
+
+> "Build an HTML prototype showing our Q2 metrics"
+> → Copilot reads `pm-ai-shipping/skills/html-prototype/SKILL.md` and generates the page
+
+**What's different from Claude Code:** Copilot's own slash commands (`/explain`, `/fix`) take precedence, so PM workflows are triggered in natural language rather than with `/discover` or `/write-prd`. The skill content and methodology are identical.
+
 ## About
 
-This marketplace evolves with product practice and AI capabilities.
-
-Selected skills based on the work of:
-
-- Teresa Torres — [*Continuous Discovery Habits*](https://www.amazon.com/Continuous-Discovery-Habits-Discover-Products/dp/1736633309/)
-- Marty Cagan — [*INSPIRED*](https://www.amazon.com/INSPIRED-Create-Tech-Products-Customers/dp/1119387507/) and [*TRANSFORMED*](https://www.amazon.com/dp/1119697336/)
-- Alberto Savoia — [*The Right It*](https://www.amazon.com/Right-Many-Ideas-Yours-Succeed/dp/0062884654)
-- Dan Olsen — [*The Lean Product Playbook*](https://www.amazon.com/dp/1118960874/)
-- Roger L. Martin — [*Playing to Win*](https://www.amazon.com/Playing-Win-Expanded-Bonus-Articles/dp/B0F25SDYWV/)
-- Ash Maurya — [*Running Lean*](https://www.amazon.com/dp/B004J4XGN6/)
-- Strategyzer — [*Business Model Generation*](https://www.amazon.com/dp/0470876417/) and [*Value Proposition Design*](https://www.amazon.com/dp/1118968050/)
-- Christina Wodtke — [*Radical Focus*](https://www.amazon.com/Radical-Focus-Achieving-Important-Objectives/dp/0996006052)
-- Anthony W. Ulwick — [*Jobs to Be Done*](https://jobs-to-be-done-book.com/)
-- Alistair Croll & Benjamin Yoskovitz — [*Lean Analytics*](https://www.amazon.com/Lean-Analytics-Better-Startup-Faster/dp/1449335675/)
-- Sean Ellis — [*Hacking Growth*](https://www.amazon.com/Hacking-Growth-Fastest-Growing-Companies-Breakout/dp/045149721X/)
-- Maja Voje — [*Go-To-Market Strategist*](https://gtmstrategist.com/)
-
-Curated by Syed Raza.
+This marketplace evolves with product practice and AI capabilities. Curated by Syed Raza.
 
 ## Contributing
 
