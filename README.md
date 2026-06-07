@@ -510,22 +510,6 @@ A ready-to-use HTML dashboard starter lives in [`templates/html-prototype/`](tem
 
 ---
 
-## GitHub Copilot
-
-This marketplace works with GitHub Copilot via `.github/copilot-instructions.md`, which Copilot Chat loads automatically as context for every session in this repo.
-
-**What Copilot gets:** a full index of all 73 skills and 45 commands with file paths, and instructions to read the relevant `SKILL.md` before answering PM questions and to follow command files step-by-step for workflows.
-
-**How to use it in Copilot Chat:**
-
-> "Help me build a Lean Canvas for my SaaS idea"
-> → Copilot reads `pm-product-strategy/skills/lean-canvas/SKILL.md` and applies the framework
-
-> "Build an HTML prototype showing our Q2 metrics"
-> → Copilot reads `pm-ai-shipping/skills/html-prototype/SKILL.md` and generates the page
-
-**What's different from Claude Code:** Copilot's own slash commands (`/explain`, `/fix`) take precedence, so PM workflows are triggered in natural language rather than with `/discover` or `/write-prd`. The skill content and methodology are identical.
-
 ## About
 
 This marketplace evolves with product practice and AI capabilities. Curated by Syed Raza.
