@@ -1,0 +1,51 @@
+{
+  "meta": {
+    "title": "Product Dashboard",
+    "subtitle": "Q2 2025 — Replace with your product name",
+    "updated": "June 2025"
+  },
+  "metrics": [
+    {
+      "label": "Monthly Active Users",
+      "value": "12,847",
+      "trend": "+8%",
+      "trend_dir": "up",
+      "_source": "analytics DB — events.monthly_active_users | integer"
+    },
+    {
+      "label": "Conversion Rate",
+      "value": "3.2%",
+      "trend": "+0.4pp",
+      "trend_dir": "up",
+      "_source": "analytics DB — funnels.signup_to_active | percentage, 1 decimal"
+    },
+    {
+      "label": "Avg. Session Length",
+      "value": "4m 12s",
+      "trend": "-0:18",
+      "trend_dir": "down",
+      "_source": "analytics DB — sessions.avg_duration | seconds, formatted as Xm Xs"
+    },
+    {
+      "label": "NPS Score",
+      "value": "42",
+      "trend": "+3",
+      "trend_dir": "up",
+      "_source": "survey tool API — /v1/nps/latest | integer -100 to 100"
+    }
+  ],
+  "table": {
+    "title": "Top Feature Requests",
+    "columns": ["Feature", "Votes", "Priority", "Status"],
+    "rows": [
+      ["AI-powered search",    "284", "High",   "In Discovery"],
+      ["Bulk export",          "201", "High",   "Planned"],
+      ["Custom dashboards",    "178", "Medium", "Backlog"],
+      ["Slack integration",    "142", "Medium", "In Progress"],
+      ["Mobile app",           "98",  "Low",    "Backlog"],
+      ["Audit log",            "87",  "High",   "In Progress"],
+      ["SSO / SAML",           "76",  "High",   "Planned"]
+    ],
+    "_source": "product DB — feature_requests table, ordered by votes DESC"
+  }
+}

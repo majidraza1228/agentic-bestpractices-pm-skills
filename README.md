@@ -4,7 +4,7 @@
 
 # PM Skills Marketplace: The AI Operating System for Product Managers Adopting AI
 
-> 72 PM skills and 44 chained workflows across 10 plugins. Claude Code, Cowork, and more. From AI rollout planning and governance to discovery, strategy, execution, launch, growth, and shipping AI-built code.
+> 73 PM skills and 45 chained workflows across 10 plugins. Claude Code, Cowork, and more. From AI rollout planning and governance to discovery, strategy, execution, launch, growth, and shipping AI-built code.
 
 ![PM Skills marketplace: skills, commands, and all 10 plugins at a glance](.docs/images/plugins.png)
 
@@ -14,6 +14,7 @@ Built for product managers leading AI adoption inside their organizations — an
 
 Rolling out AI tools? → `/plan-ai-rollout`  
 Auditing AI adoption? → `/audit-ai-usage`  
+Need a shareable prototype? → `/prototype-page`  
 New idea? → `/discover`  
 Need strategic clarity? → `/strategy`  
 Writing a PRD? → `/write-prd`  
@@ -468,17 +469,19 @@ Commands:
 </details>
 
 <details>
-<summary><strong>10. pm-ai-shipping</strong> — AI Shipping Kit: document a vibe-coded app, audit security and performance, map test coverage, compile a shipping packet (2 skills, 5 commands)</summary>
+<summary><strong>10. pm-ai-shipping</strong> — AI Shipping Kit: build HTML prototypes, document a vibe-coded app, audit security and performance, map test coverage, compile a shipping packet (3 skills, 6 commands)</summary>
 
-For PMs and founders accountable for AI-built code. AI agents write code fast but leave no record of *intent* — what the system should do, who may do what, where the secrets live, which rules are actually verified. This kit restores reviewability: it documents the system, then audits the gap between what the docs say and what the code actually does — the class of bug generic scanners miss.
+For PMs and founders accountable for AI-built code. Build fast stakeholder prototypes, then make them production-ready: document the system, audit the gap between intent and implementation, map test coverage, and compile a reviewer-ready shipping packet.
 
-**Skills (2):**
+**Skills (3):**
 
+- `html-prototype` — Build a static HTML page for stakeholder feedback, then migrate it to live data from Excel/CSV, API, or database — without rewriting the page. Covers the four-phase migration path and GitHub Pages hosting
 - `shipping-artifacts` — The durable documentation set that makes an AI-built app reviewable: a core every app needs (architecture, user/permission flows, permissions, variables/secrets, test-coverage map) plus conditional docs added only when they apply (emails, cron, SEO, embedded agents/automation). Defines what each doc must capture and how a reviewer uses it
 - `intended-vs-implemented` — The method for finding the gap between what a system is documented to do and what the code actually does, with cited evidence on both sides
 
-**Commands (5):**
+**Commands (6):**
 
+- `/prototype-page` — Generate a stakeholder-ready HTML prototype with static placeholder data, a data-migration plan, and GitHub Pages deploy — from description to shareable link in one session
 - `/ship-check` — Turn a vibe-coded repo into a reviewer-ready shipping packet: document, wire agent context, run security and performance audits, map test coverage, and compile the results
 - `/document-app` — Reverse-engineer a codebase into the system documents reviewers and auditors need — a core set (architecture, flows, permissions, variables) plus conditional docs (emails, cron, SEO, automation) when they apply
 - `/derive-tests` — Turn documented intent into a test-coverage map: inventory the tests that exist today, separate them from proposed tests and unverified gaps, and recommend a green-before-merge CI gate
@@ -488,14 +491,20 @@ For PMs and founders accountable for AI-built code. AI agents write code fast bu
 **Examples:**
 
 Skills:
+- `Build a prototype of our Q2 metrics dashboard for the exec review`
 - `What documentation does my Supabase app need before someone can review it?`
 - `Where does what this code does diverge from what the docs say it should do?`
 
 Commands:
+- `/prototype-page product metrics dashboard for Q2 exec review — show MAU, conversion rate, NPS, and top feature requests`
 - `/ship-check the payments service`
 - `/document-app — Reverse-engineer the system docs for this repo`
 - `/derive-tests — Which documented rules have no test yet?`
 - `/security-audit-static src/api`
+
+**Template:**
+
+A ready-to-use HTML dashboard starter lives in [`templates/html-prototype/`](templates/html-prototype/). Copy it, edit the data block, push to GitHub, enable Pages. Live in under 30 minutes.
 
 </details>
 
