@@ -1,6 +1,6 @@
 # How to Use PM Skills Marketplace
 
-Step-by-step instructions for GitHub Copilot, Claude Code, and Claude Cowork.
+Step-by-step instructions for GitHub Copilot, Claude Code, Claude Cowork, and Microsoft tech stack alternatives.
 
 ---
 
@@ -9,7 +9,8 @@ Step-by-step instructions for GitHub Copilot, Claude Code, and Claude Cowork.
 1. [GitHub Copilot](#1-github-copilot)
 2. [Claude Code (CLI)](#2-claude-code-cli)
 3. [Claude Cowork](#3-claude-cowork)
-4. [Common Workflows — Side by Side](#4-common-workflows--side-by-side)
+4. [Microsoft Tech Stack Alternatives](#4-microsoft-tech-stack-alternatives)
+5. [Common Workflows — Side by Side](#5-common-workflows--side-by-side)
 
 ---
 
@@ -297,7 +298,208 @@ Claude Cowork shows available commands as you type `/` — you can browse and se
 
 ---
 
-## 4. Common Workflows — Side by Side
+## 4. Microsoft Tech Stack Alternatives
+
+If your organization runs on Microsoft 365 and GitHub Copilot, you have four options — ordered from easiest to most powerful.
+
+---
+
+### Option 1: GitHub Copilot Chat (easiest, no setup)
+
+**Best for:** developers and PMs already using VS Code or JetBrains with Copilot.
+
+This is the same as [Section 1](#1-github-copilot). No additional setup — `.github/copilot-instructions.md` is already in this repo and Copilot Chat loads it automatically.
+
+**Open Copilot Chat and describe what you need in plain language:**
+
+```
+Write a PRD for a smart notification system that reduces alert fatigue in Slack-heavy teams.
+```
+
+```
+Build a phased rollout plan for GitHub Copilot across our 200-person engineering org.
+```
+
+Copilot reads the relevant skill from this repo and applies the framework.
+
+**Limitation:** only works inside this repository. If you want to use PM skills in any chat session (not tied to this repo), use Option 2 or 3.
+
+---
+
+### Option 2: Microsoft Copilot (web) — copilot.microsoft.com
+
+**Best for:** PMs who want to use PM skills in a standalone chat, without a code editor.
+
+Microsoft Copilot at [copilot.microsoft.com](https://copilot.microsoft.com) is a general-purpose AI chat. It does not load this repo's skills automatically, but you can paste any skill directly into your prompt.
+
+#### Step-by-step
+
+**1. Find the skill you want.**
+Each skill lives in `pm-{plugin}/skills/{skill-name}/SKILL.md`. Open the file in GitHub.
+
+For example, for the PRD skill:
+```
+pm-execution/skills/create-prd/SKILL.md
+```
+
+**2. Copy the skill content.**
+Open the file on GitHub, click **Raw**, select all, and copy.
+
+**3. Paste it as context in your Microsoft Copilot chat.**
+Start your message with the skill content, then add your request:
+
+```
+[paste the full SKILL.md content here]
+
+---
+
+Using the framework above, write a PRD for a smart notification system that reduces alert fatigue.
+```
+
+**4. For repeat use, save your prompt as a reusable snippet.**
+Microsoft Copilot does not have a plugin system, so the easiest way to reuse skills is to save your most-used prompts in a text file or Notion/OneNote page for quick copy-paste.
+
+**Skills that work well via copy-paste:**
+
+| Task | Skill file to paste |
+|------|--------------------|
+| Write a PRD | `pm-execution/skills/create-prd/SKILL.md` |
+| Plan an AI rollout | `pm-ai-adoption/skills/ai-adoption-strategy/SKILL.md` |
+| Lean Canvas | `pm-product-strategy/skills/lean-canvas/SKILL.md` |
+| Stakeholder map | `pm-execution/skills/stakeholder-map/SKILL.md` |
+| HTML prototype | `pm-ai-shipping/skills/html-prototype/SKILL.md` |
+
+**Limitation:** no auto-loading, no slash commands, no chaining. Manual copy-paste each time.
+
+---
+
+### Option 3: Microsoft 365 Copilot (Teams, Word, Outlook)
+
+**Best for:** PMs who live in Teams and Word and want PM frameworks available in their daily Microsoft tools.
+
+Microsoft 365 Copilot can reference files stored in SharePoint or OneDrive. You can upload skill files to SharePoint and reference them in Copilot.
+
+#### Step-by-step
+
+**1. Upload skill files to SharePoint.**
+
+Create a folder in your team's SharePoint site, e.g. `PM Skills`:
+
+```
+SharePoint > [Your Team Site] > Documents > PM Skills
+```
+
+Upload the `SKILL.md` files you use most — or the entire repo folder. You can clone the repo and upload, or download individual files from GitHub.
+
+**2. Reference a skill in Teams Copilot.**
+
+In Microsoft Teams with Copilot enabled, use `/` to reference the file:
+
+```
+/[PM Skills/create-prd.md] Write a PRD for a smart notification system that reduces alert fatigue.
+```
+
+Or reference it by asking Copilot to find it:
+
+```
+Using the PRD framework in the PM Skills SharePoint folder, write a PRD for a smart notification system.
+```
+
+**3. Use in Word Copilot.**
+
+Open Word, click **Copilot** in the ribbon, then:
+
+```
+Using the stakeholder mapping framework from [link to SKILL.md in SharePoint], map the stakeholders for our platform migration project.
+```
+
+**4. Use in Outlook Copilot.**
+
+When drafting an email or summarizing a meeting, you can reference skills:
+
+```
+Using the meeting notes framework from PM Skills, summarize this transcript into decisions and action items.
+```
+
+**Limitation:** requires SharePoint access and manual file management. Skill updates in this repo need to be re-uploaded to SharePoint to stay current.
+
+---
+
+### Option 4: Microsoft Copilot Studio (closest to Claude Cowork)
+
+**Best for:** organizations that want a proper internal PM skills assistant, available to the whole team without manual file management.
+
+Copilot Studio lets you build a custom AI assistant ("copilot") that automatically loads the PM skills as a knowledge base. This is the closest Microsoft equivalent to Claude Cowork — your team gets a dedicated PM assistant with the skills pre-loaded.
+
+#### Step-by-step
+
+**1. Open Copilot Studio.**
+
+Go to [copilotstudio.microsoft.com](https://copilotstudio.microsoft.com) and sign in with your Microsoft 365 account.
+
+**2. Create a new copilot.**
+
+Click **Create** → **New copilot**.
+
+Give it a name, e.g. `PM Skills Assistant`.
+
+**3. Add PM Skills as a knowledge source.**
+
+In the **Knowledge** tab:
+- Click **Add knowledge** → **Public website or file**.
+- Option A — GitHub (public): add `https://github.com/majidraza1228/agentic-bestpractices-pm-skills` as a website source. Copilot Studio crawls the repo and indexes the skill content.
+- Option B — SharePoint: upload the skill files to SharePoint first (see Option 3), then add the SharePoint folder as a knowledge source. This gives you more control over what's indexed.
+
+**4. Set the system prompt.**
+
+In the **Instructions** tab, add:
+
+```
+You are a PM Skills Assistant. When a user asks about a PM topic, find the most relevant skill in your knowledge base and apply its framework to their question. For multi-step workflows (discovery, PRD writing, launch planning), walk through each step in order and pause for user input between steps.
+```
+
+**5. Publish and share.**
+
+Click **Publish**. You can deploy the copilot to:
+- Microsoft Teams (most common — your team accesses it from the Teams sidebar)
+- A standalone web page
+- SharePoint
+
+**6. Use it in Teams.**
+
+Your team opens the PM Skills Assistant in Teams and types naturally:
+
+```
+Help me write a PRD for a smart notification feature.
+```
+
+```
+Plan a GitHub Copilot rollout for our engineering team.
+```
+
+```
+What's the best prioritization framework for a 50-item backlog?
+```
+
+The assistant finds the relevant skill from the knowledge base and walks the user through the framework.
+
+**Limitation:** requires a Microsoft 365 Copilot license and Copilot Studio access. Initial setup takes 30–60 minutes. Skill updates in this repo require re-indexing the knowledge source.
+
+---
+
+### Which option should you choose?
+
+| Option | Setup time | Best for | Skills auto-load? | Commands? |
+|--------|-----------|---------|-------------------|-----------|
+| GitHub Copilot Chat | None | Developers in VS Code | Partial | No — natural language |
+| Microsoft Copilot (web) | None | Quick one-off tasks | No — paste manually | No |
+| M365 Copilot (Teams/Word) | 30 min | PMs in the Microsoft 365 daily flow | Partial — via SharePoint | No |
+| Copilot Studio | 30–60 min | Teams that want a shared PM assistant | Yes — knowledge base | No |
+| **Claude Cowork** | 5 min | Any PM, best overall experience | Yes — full auto-load | Yes — 45 commands |
+
+---
+
+## 5. Common Workflows — Side by Side
 
 ### Build a product prototype for stakeholder feedback
 
@@ -305,7 +507,9 @@ Claude Cowork shows available commands as you type `/` — you can browse and se
 |------|-------------|
 | **Claude Code** | `/prototype-page product metrics dashboard for Q2 exec review — MAU, conversion rate, NPS, top feature requests` |
 | **Cowork** | `/prototype-page product metrics dashboard for Q2 exec review` |
-| **Copilot** | `Build a complete HTML prototype for a Q2 metrics dashboard. Include KPI cards (MAU, conversion, NPS), a feature request table, a data.json file, a loader that supports CSV and API modes, and a GitHub Pages deploy workflow.` |
+| **GitHub Copilot Chat** | `Build a complete HTML prototype for a Q2 metrics dashboard. Include KPI cards (MAU, conversion, NPS), a feature request table, a data.json file, a loader that supports CSV and API modes, and a GitHub Pages deploy workflow.` |
+| **Microsoft Copilot / M365** | Paste `pm-ai-shipping/skills/html-prototype/SKILL.md` then: `Build an HTML prototype for a Q2 metrics dashboard with MAU, conversion rate, NPS, and a feature request table.` |
+| **Copilot Studio** | `Build an HTML prototype for a Q2 metrics dashboard with MAU, conversion rate, NPS, and a feature request table.` |
 
 ---
 
@@ -315,7 +519,9 @@ Claude Cowork shows available commands as you type `/` — you can browse and se
 |------|-------------|
 | **Claude Code** | `/plan-ai-rollout GitHub Copilot for a 200-person engineering org` |
 | **Cowork** | `/plan-ai-rollout GitHub Copilot for a 200-person engineering org` |
-| **Copilot** | `Build a phased rollout plan for GitHub Copilot across our 200-person engineering org. Cover pilot design, stakeholder alignment, governance, training, and success metrics.` |
+| **GitHub Copilot Chat** | `Build a phased rollout plan for GitHub Copilot across our 200-person engineering org. Cover pilot design, stakeholder alignment, governance, training, and success metrics.` |
+| **Microsoft Copilot / M365** | Paste `pm-ai-adoption/skills/ai-adoption-strategy/SKILL.md` then: `Plan a GitHub Copilot rollout for a 200-person engineering org.` |
+| **Copilot Studio** | `Plan a GitHub Copilot rollout for a 200-person engineering org.` |
 
 ---
 
@@ -325,7 +531,9 @@ Claude Cowork shows available commands as you type `/` — you can browse and se
 |------|-------------|
 | **Claude Code** | `/discover AI writing tool for non-native English speakers` |
 | **Cowork** | `/discover AI writing tool for non-native English speakers` |
-| **Copilot** | `Run full product discovery on an AI writing tool for non-native English speakers. Step 1: brainstorm ideas. Step 2: identify riskiest assumptions. Step 3: prioritize them. Step 4: design experiments. Pause between each step for my input.` |
+| **GitHub Copilot Chat** | `Run full product discovery on an AI writing tool for non-native English speakers. Step 1: brainstorm ideas. Step 2: identify riskiest assumptions. Step 3: prioritize them. Step 4: design experiments. Pause between each step.` |
+| **Microsoft Copilot / M365** | Paste `pm-product-discovery/commands/discover.md` then: `Run this discovery workflow for an AI writing tool for non-native English speakers.` |
+| **Copilot Studio** | `Run product discovery on an AI writing tool for non-native English speakers — brainstorm, identify assumptions, prioritize, design experiments.` |
 
 ---
 
@@ -335,7 +543,9 @@ Claude Cowork shows available commands as you type `/` — you can browse and se
 |------|-------------|
 | **Claude Code** | `/write-prd smart notification system that reduces alert fatigue in Slack-heavy teams` |
 | **Cowork** | `/write-prd smart notification system that reduces alert fatigue` |
-| **Copilot** | `Write a comprehensive PRD for a smart notification system that reduces alert fatigue in Slack-heavy teams. Use an 8-section structure: problem statement, goals, user stories, requirements, out of scope, success metrics, risks, and open questions.` |
+| **GitHub Copilot Chat** | `Write a comprehensive PRD for a smart notification system that reduces alert fatigue in Slack-heavy teams. Use an 8-section structure: problem statement, goals, user stories, requirements, out of scope, success metrics, risks, and open questions.` |
+| **Microsoft Copilot / M365** | Paste `pm-execution/skills/create-prd/SKILL.md` then: `Write a PRD for a smart notification system that reduces alert fatigue.` |
+| **Copilot Studio** | `Write a PRD for a smart notification system that reduces alert fatigue in Slack-heavy teams.` |
 
 ---
 
@@ -345,4 +555,6 @@ Claude Cowork shows available commands as you type `/` — you can browse and se
 |------|-------------|
 | **Claude Code** | `/audit-ai-usage We've had Copilot for 6 months but adoption is below 30%` |
 | **Cowork** | `/audit-ai-usage Copilot — 6 months in, below 30% adoption` |
-| **Copilot** | `Audit our GitHub Copilot adoption. We've had it for 6 months and adoption is below 30%. Identify cost waste, safety gaps, low-adoption causes, and the top 3 quick wins to improve uptake.` |
+| **GitHub Copilot Chat** | `Audit our GitHub Copilot adoption. We've had it for 6 months and adoption is below 30%. Identify cost waste, safety gaps, low-adoption causes, and the top 3 quick wins.` |
+| **Microsoft Copilot / M365** | Paste `pm-ai-adoption/commands/audit-ai-usage.md` then: `Audit our Copilot adoption — 6 months in, below 30%.` |
+| **Copilot Studio** | `Audit our GitHub Copilot adoption — 6 months in, below 30%. Find cost waste, safety gaps, and quick wins.` |
