@@ -1,18 +1,19 @@
-![GitHub stars](https://img.shields.io/github/stars/phuryn/pm-skills)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](https://github.com/phuryn/pm-skills/blob/main/LICENSE)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](https://github.com/phuryn/pm-skills/blob/main/CONTRIBUTING.md)
-[![Companion: pm-skills](https://img.shields.io/badge/companion-pm--brain-blue)](https://github.com/phuryn/pm-brain)
+![GitHub stars](https://img.shields.io/github/stars/majidraza1228/agentic-bestpractices-pm-skills)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow?style=flat-square)](https://github.com/majidraza1228/agentic-bestpractices-pm-skills/blob/main/LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen?style=flat-square)](https://github.com/majidraza1228/agentic-bestpractices-pm-skills/blob/main/CONTRIBUTING.md)
 
-# PM Skills Marketplace: The AI Operating System for Better Product Decisions
+# PM Skills Marketplace: The AI Operating System for Product Managers Adopting AI
 
-> 68 PM skills and 42 chained workflows across 9 plugins. Claude Code, Cowork, and more. From discovery to strategy, execution, launch, growth, and shipping AI-built code. 
+> 72 PM skills and 44 chained workflows across 10 plugins. Claude Code, Cowork, and more. From AI rollout planning and governance to discovery, strategy, execution, launch, growth, and shipping AI-built code.
 
-![PM Skills marketplace: skills, commands, and all 9 plugins at a glance](.docs/images/plugins.png)
+![PM Skills marketplace: skills, commands, and all 10 plugins at a glance](.docs/images/plugins.png)
 
-Designed for Claude Code and Cowork. Skills compatible with other AI assistants.
+Built for product managers leading AI adoption inside their organizations — and for every other PM workflow in between. Designed for Claude Code and Cowork. Skills compatible with other AI assistants.
 
 ## Start Here
 
+Rolling out AI tools? → `/plan-ai-rollout`  
+Auditing AI adoption? → `/audit-ai-usage`  
 New idea? → `/discover`  
 Need strategic clarity? → `/strategy`  
 Writing a PRD? → `/write-prd`  
@@ -25,9 +26,9 @@ If this project helps you, ⭐ the repo.
 
 Generic AI gives you text. PM Skills Marketplace gives you structure.
 
-Each skill encodes a proven PM framework — discovery, assumption mapping, prioritization, strategy — and walks you through it step by step. You get the rigor of Teresa Torres, Marty Cagan, and Alberto Savoia built into your daily workflow, not sitting on a bookshelf.
+Each skill encodes a proven PM framework — AI rollout planning, discovery, assumption mapping, prioritization, strategy — and walks you through it step by step. You get the rigor of Teresa Torres, Marty Cagan, and Alberto Savoia built into your daily workflow, not sitting on a bookshelf.
 
-The result: better product decisions, not just faster documents.
+The result: better product decisions, not just faster documents. And for PMs accountable for AI adoption, a structured path from pilot to governance to measurable ROI.
 
 ## How It Works (Skills, Commands, Plugins)
 
@@ -39,7 +40,7 @@ Skills are loaded automatically when relevant to the conversation — no explici
 
 **Commands** are user-triggered workflows invoked with `/command-name`. They chain one or more skills into an end-to-end process. For example, `/discover` chains four skills together: brainstorm-ideas → identify-assumptions → prioritize-assumptions → brainstorm-experiments.
 
-**Plugins** group related skills and commands into installable packages. Each plugin covers a PM domain — discovery, strategy, execution, and so on. Installing the marketplace gives you all 9 plugins at once.
+**Plugins** group related skills and commands into installable packages. Each plugin covers a PM domain — AI adoption, discovery, strategy, execution, and so on. Installing the marketplace gives you all 10 plugins at once.
 
 Commands use skills. Some skills serve multiple commands. Some skills (like `prioritization-frameworks` or `opportunity-solution-tree`) are standalone references that Claude draws on whenever relevant — no command needed.
 
@@ -52,9 +53,9 @@ Commands are designed to flow into each other, matching the PM workflow. After a
 1. Open **Customize** (bottom-left)
 2. Go to **Browse plugins** → **Personal** → **+**
 3. Select **Add marketplace from GitHub**
-4. Enter: `phuryn/pm-skills`
+4. Enter: `majidraza1228/agentic-bestpractices-pm-skills`
 
-All 9 plugins install automatically. You get both commands (`/discover`, `/strategy`, etc.) and skills.
+All 10 plugins install automatically. You get both commands (`/plan-ai-rollout`, `/discover`, `/strategy`, etc.) and skills.
 
 ![Installing PM Skills in Claude Cowork](.docs/images/pm-skills-install.gif)
 
@@ -62,18 +63,19 @@ All 9 plugins install automatically. You get both commands (`/discover`, `/strat
 
 ```bash
 # Step 1: Add the marketplace
-claude plugin marketplace add phuryn/pm-skills
+claude plugin marketplace add majidraza1228/agentic-bestpractices-pm-skills
 
 # Step 2: Install individual plugins
-claude plugin install pm-toolkit@pm-skills
-claude plugin install pm-product-strategy@pm-skills
-claude plugin install pm-product-discovery@pm-skills 
-claude plugin install pm-market-research@pm-skills 
-claude plugin install pm-data-analytics@pm-skills
-claude plugin install pm-marketing-growth@pm-skills
-claude plugin install pm-go-to-market@pm-skills
-claude plugin install pm-execution@pm-skills
-claude plugin install pm-ai-shipping@pm-skills
+claude plugin install pm-ai-adoption@agentic-bestpractices-pm-skills
+claude plugin install pm-toolkit@agentic-bestpractices-pm-skills
+claude plugin install pm-product-strategy@agentic-bestpractices-pm-skills
+claude plugin install pm-product-discovery@agentic-bestpractices-pm-skills
+claude plugin install pm-market-research@agentic-bestpractices-pm-skills
+claude plugin install pm-data-analytics@agentic-bestpractices-pm-skills
+claude plugin install pm-marketing-growth@agentic-bestpractices-pm-skills
+claude plugin install pm-go-to-market@agentic-bestpractices-pm-skills
+claude plugin install pm-execution@agentic-bestpractices-pm-skills
+claude plugin install pm-ai-shipping@agentic-bestpractices-pm-skills
 ```
 
 ### Codex CLI (OpenAI)
@@ -82,18 +84,19 @@ Codex reads the same plugin marketplace file as Claude Code, so you can install 
 
 ```bash
 # Step 1: Add the marketplace
-codex plugin marketplace add phuryn/pm-skills
+codex plugin marketplace add majidraza1228/agentic-bestpractices-pm-skills
 
 # Step 2: Install the plugins you want
-codex plugin add pm-toolkit@pm-skills
-codex plugin add pm-product-strategy@pm-skills
-codex plugin add pm-product-discovery@pm-skills
-codex plugin add pm-market-research@pm-skills
-codex plugin add pm-data-analytics@pm-skills
-codex plugin add pm-marketing-growth@pm-skills
-codex plugin add pm-go-to-market@pm-skills
-codex plugin add pm-execution@pm-skills
-codex plugin add pm-ai-shipping@pm-skills
+codex plugin add pm-ai-adoption@agentic-bestpractices-pm-skills
+codex plugin add pm-toolkit@agentic-bestpractices-pm-skills
+codex plugin add pm-product-strategy@agentic-bestpractices-pm-skills
+codex plugin add pm-product-discovery@agentic-bestpractices-pm-skills
+codex plugin add pm-market-research@agentic-bestpractices-pm-skills
+codex plugin add pm-data-analytics@agentic-bestpractices-pm-skills
+codex plugin add pm-marketing-growth@agentic-bestpractices-pm-skills
+codex plugin add pm-go-to-market@agentic-bestpractices-pm-skills
+codex plugin add pm-execution@agentic-bestpractices-pm-skills
+codex plugin add pm-ai-shipping@agentic-bestpractices-pm-skills
 ```
 
 **What you get:** every skill (the PM frameworks), available to Codex and invocable by name. Install whole plugins rather than cherry-picking individual skills — a workflow usually relies on several skills that ship together.
@@ -137,7 +140,37 @@ done
 ## Available Plugins
 
 <details>
-<summary><strong>1. pm-product-discovery</strong> — Ideation, experiments, assumption testing, OSTs, interviews (13 skills, 5 commands)</summary>
+<summary><strong>1. pm-ai-adoption</strong> — AI rollout planning, governance, safety, token cost control, and ROI measurement (4 skills, 2 commands)</summary>
+
+For product managers and program managers accountable for rolling out and governing AI tools — GitHub Copilot, Microsoft 365 Copilot, Claude, and others — inside their organizations.
+
+**Skills (4):**
+
+- `ai-adoption-strategy` — Phased rollout framework: pilot design, stakeholder alignment, change management, and tool-specific guidance for Copilot, M365, and Claude
+- `ai-token-optimization` — Cut AI token costs without losing quality — prompt efficiency, context management, model selection, and team-level budgeting
+- `ai-safety-governance` — Safe AI use policies, data classification, DLP controls, incident response, and compliance for enterprise AI rollouts
+- `ai-success-metrics` — KPIs and measurement framework for AI adoption — breadth, quality, productivity impact, ROI calculation, and OKR templates
+
+**Commands (2):**
+
+- `/plan-ai-rollout` — Build a complete rollout plan: pilot, governance, training, and success metrics
+- `/audit-ai-usage` — Audit current AI tool usage for adoption gaps, cost waste, and safety issues
+
+**Examples:**
+
+Skills:
+- `Design a phased rollout plan for GitHub Copilot across our 200-person engineering org`
+- `What KPIs should I track to prove ROI on our M365 Copilot investment?`
+- `Draft an acceptable use policy for Claude in our legal department`
+
+Commands:
+- `/plan-ai-rollout Claude Enterprise rollout for a 500-person financial services firm`
+- `/audit-ai-usage We've had Copilot for 6 months but adoption is below 30%`
+
+</details>
+
+<details>
+<summary><strong>2. pm-product-discovery</strong> — Ideation, experiments, assumption testing, OSTs, interviews (13 skills, 5 commands)</summary>
 
 **Skills (13):**
 
@@ -178,7 +211,7 @@ Commands:
 </details>
 
 <details>
-<summary><strong>2. pm-product-strategy</strong> — Vision, business models, pricing, competitive landscape (12 skills, 5 commands)</summary>
+<summary><strong>3. pm-product-strategy</strong> — Vision, business models, pricing, competitive landscape (12 skills, 5 commands)</summary>
 
 Product strategy, vision, business models, pricing, and macro environment analysis. Covers the full strategic toolkit from vision crafting through competitive landscape scanning.
 
@@ -220,7 +253,7 @@ Commands:
 </details>
 
 <details>
-<summary><strong>3. pm-execution</strong> — PRDs, OKRs, roadmaps, sprints, retros, release notes, stakeholder management (16 skills, 11 commands)</summary>
+<summary><strong>4. pm-execution</strong> — PRDs, OKRs, roadmaps, sprints, retros, release notes, stakeholder management (16 skills, 11 commands)</summary>
 
 Day-to-day product management: PRDs, OKRs, roadmaps, sprints, retrospectives, release notes, pre-mortems, stakeholder management, user stories, and prioritization frameworks.
 
@@ -272,7 +305,7 @@ Commands:
 </details>
 
 <details>
-<summary><strong>4. pm-market-research</strong> — Personas, segmentation, journey maps, market sizing, competitor analysis (7 skills, 3 commands)</summary>
+<summary><strong>5. pm-market-research</strong> — Personas, segmentation, journey maps, market sizing, competitor analysis (7 skills, 3 commands)</summary>
 
 User research and competitive analysis: personas, segmentation, journey maps, market sizing, competitor analysis, and feedback analysis.
 
@@ -307,7 +340,7 @@ Commands:
 </details>
 
 <details>
-<summary><strong>5. pm-data-analytics</strong> — SQL generation, cohort analysis, A/B test analysis (3 skills, 3 commands)</summary>
+<summary><strong>6. pm-data-analytics</strong> — SQL generation, cohort analysis, A/B test analysis (3 skills, 3 commands)</summary>
 
 Data analytics for PMs: SQL query generation, cohort analysis, and A/B test analysis.
 
@@ -337,7 +370,7 @@ Commands:
 </details>
 
 <details>
-<summary><strong>6. pm-go-to-market</strong> — Beachhead segments, ICPs, messaging, growth loops, GTM motions, battlecards (6 skills, 3 commands)</summary>
+<summary><strong>7. pm-go-to-market</strong> — Beachhead segments, ICPs, messaging, growth loops, GTM motions, battlecards (6 skills, 3 commands)</summary>
 
 Go-to-market strategy: beachhead segments, ideal customer profiles, messaging, growth loops, GTM motions, and competitive battlecards.
 
@@ -371,7 +404,7 @@ Commands:
 </details>
 
 <details>
-<summary><strong>7. pm-marketing-growth</strong> — Marketing ideas, positioning, value props, naming, North Star metrics (5 skills, 2 commands)</summary>
+<summary><strong>8. pm-marketing-growth</strong> — Marketing ideas, positioning, value props, naming, North Star metrics (5 skills, 2 commands)</summary>
 
 Product marketing and growth: marketing ideas, positioning, value proposition statements, product naming, and North Star metrics.
 
@@ -402,7 +435,7 @@ Commands:
 </details>
 
 <details>
-<summary><strong>8. pm-toolkit</strong> — Resume review, legal documents, proofreading (4 skills, 5 commands)</summary>
+<summary><strong>9. pm-toolkit</strong> — Resume review, legal documents, proofreading (4 skills, 5 commands)</summary>
 
 PM utilities beyond core product work: resume review, legal documents, and proofreading.
 
@@ -435,7 +468,7 @@ Commands:
 </details>
 
 <details>
-<summary><strong>9. pm-ai-shipping</strong> — AI Shipping Kit: document a vibe-coded app, audit security and performance, map test coverage, compile a shipping packet (2 skills, 5 commands)</summary>
+<summary><strong>10. pm-ai-shipping</strong> — AI Shipping Kit: document a vibe-coded app, audit security and performance, map test coverage, compile a shipping packet (2 skills, 5 commands)</summary>
 
 For PMs and founders accountable for AI-built code. AI agents write code fast but leave no record of *intent* — what the system should do, who may do what, where the secrets live, which rules are actually verified. This kit restores reviewability: it documents the system, then audits the gap between what the docs say and what the code actually does — the class of bug generic scanners miss.
 
@@ -488,12 +521,6 @@ Selected skills based on the work of:
 - Maja Voje — [*Go-To-Market Strategist*](https://gtmstrategist.com/)
 
 Curated by Syed Raza.
-
-## Compose with PM Brain
-
-![PM Brain composes with PM Skills](.docs/images/pm-brain-pm-skills.webp)
-
-[PM Brain](https://github.com/phuryn/pm-brain) a second brain for product managers. Plain markdown files in a folder on your laptop. Claude reads them before answering, writes to them after, sweeps them every Friday. No vector DB. No cloud. No agent memory tricks.
 
 ## Contributing
 
