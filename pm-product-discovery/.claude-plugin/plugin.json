@@ -1,0 +1,17 @@
+{
+  "name": "pm-product-discovery",
+  "version": "2.0.0",
+  "description": "Product discovery skills for PMs: ideation, experiments, assumption testing, feature prioritization, and customer interview synthesis.",
+  "author": {
+    "name": "Syed Raza",
+    "email": "majidraza@gmail.com"
+  },
+  "keywords": [
+    "product-management",
+    "discovery",
+    "ideation",
+    "experiments",
+    "assumptions"
+  ],
+  "license": "MIT"
+}

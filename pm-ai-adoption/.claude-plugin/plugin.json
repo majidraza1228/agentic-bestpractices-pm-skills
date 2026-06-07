@@ -1,0 +1,22 @@
+{
+  "name": "pm-ai-adoption",
+  "version": "2.0.0",
+  "description": "Enterprise AI adoption skills for PMs: rolling out GitHub Copilot, Microsoft 365 AI, and Claude safely, governing AI use, optimizing token costs, and measuring adoption success.",
+  "author": {
+    "name": "Syed Raza",
+    "email": "majidraza@gmail.com"
+  },
+  "keywords": [
+    "product-management",
+    "ai-adoption",
+    "copilot",
+    "m365",
+    "claude",
+    "token-optimization",
+    "ai-governance",
+    "ai-safety",
+    "enterprise-ai",
+    "change-management"
+  ],
+  "license": "MIT"
+}
