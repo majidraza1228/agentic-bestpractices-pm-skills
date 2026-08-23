@@ -6,15 +6,223 @@ Step-by-step instructions for GitHub Copilot, Claude Code, Claude Cowork, and Mi
 
 ## Table of Contents
 
-1. [GitHub Copilot](#1-github-copilot)
-2. [Claude Code (CLI)](#2-claude-code-cli)
-3. [Claude Cowork](#3-claude-cowork)
-4. [Microsoft Tech Stack Alternatives](#4-microsoft-tech-stack-alternatives)
-5. [Common Workflows — Side by Side](#5-common-workflows--side-by-side)
+1. [PM Daily Workflow](#1-pm-daily-workflow)
+2. [GitHub Copilot](#2-github-copilot)
+3. [Claude Code (CLI)](#3-claude-code-cli)
+4. [Claude Cowork](#4-claude-cowork)
+5. [Microsoft Tech Stack Alternatives](#5-microsoft-tech-stack-alternatives)
+6. [Common Workflows — Side by Side](#6-common-workflows--side-by-side)
 
 ---
 
-## 1. GitHub Copilot
+## 1. PM Daily Workflow
+
+This section shows how a PM uses the marketplace in practice — day by day, meeting by meeting, across both product and project work. No installation prerequisite — pick any tool from sections 2–5.
+
+---
+
+### Monday — Sprint kickoff and weekly setup (30 min total with Claude)
+
+**8:00 AM — Check automated digests (0 min if Routines are set up)**
+
+If you've configured a Claude Routine (see `/build-routine`), your Slack DM already has:
+- Sprint board digest: On Track / At Risk / Blocked tickets
+- Competitor pricing check (if configured)
+- Meeting brief for today's calendar
+
+Nothing to do — just read it before standup.
+
+If Routines aren't set up yet, do this manually in 5 minutes:
+> Paste your Jira board state and run `/status-for-meeting standup`
+
+**8:30 AM — Standup (prepared)**
+
+You already know what's blocked. In standup, lead with blockers — don't just report status.
+
+**9:00 AM — Weekly stakeholder update (10 min)**
+
+> `/status-for-meeting stakeholder` + paste initiative or epic state
+
+Review, add any decisions needed from leadership, send async. Do this before your first stakeholder call, not after.
+
+**9:30 AM — Jira hygiene from last week (10 min)**
+
+For any tickets that changed status or need a comment after last week's conversations:
+> `/jira-update [TICKET-ID] — [what happened, what's next]`
+
+Paste each output into Jira. Do all of them now so the sprint board is clean before planning.
+
+**10:00 AM — Sprint planning prep (10 min, if planning is today)**
+
+Before the planning meeting:
+> `/sprint plan [duration, team size, sprint goal, backlog items]`
+
+Bring the structured output to the meeting. Planning becomes a review-and-adjust session, not a from-scratch exercise.
+
+---
+
+### Tuesday / Wednesday — Execution days (strategic PM work)
+
+These are your protected product work days. Delivery coordination should be minimal — blocked issues surfaced Monday, Jira is clean, stakeholder update is sent.
+
+**Writing a PRD or feature spec**
+> `/write-prd [feature name + problem statement + who it's for]`
+
+After the first draft:
+> `/red-team-prd [paste the PRD]` — stress-test assumptions before sharing
+
+**Running discovery on a new problem or idea**
+> `/discover [idea or problem space]`
+
+This chains four steps automatically: brainstorm → assumptions → prioritize → experiments. Takes 20–30 min. Do it in one session while context is fresh.
+
+**Defining metrics for a new feature**
+> `/setup-metrics [product area or feature]`
+
+**Updating the roadmap after a strategy shift**
+> `/transform-roadmap [paste current roadmap]`
+
+**Researching a new market or competitor**
+> `/market-scan [market or category]`
+> `/competitive-analysis [your product vs. market]`
+
+---
+
+### Thursday — Stakeholder and alignment day
+
+**Before any exec or cross-functional meeting**
+
+5 minutes before:
+> `/status-for-meeting stakeholder [initiative name + paste ticket status]`
+
+If something is off-track, add your mitigation plan and the decision you need. Send this before the meeting — don't reveal bad news for the first time in a room.
+
+**After any stakeholder meeting**
+
+15 minutes after:
+> `/meeting-notes [paste transcript or rough notes]`
+
+This captures decisions and action items. Forward the output to attendees. Any action items that become Jira tickets:
+> `/jira-update [TICKET-ID] — [acceptance criteria or task description]`
+
+**Preparing a stakeholder presentation**
+
+If you're presenting initiative status to leadership:
+1. Run `/status-for-meeting stakeholder` — this gives you the structure
+2. Use the RAG status + Decisions Needed section as your opening slide
+3. One slide per initiative — don't combine multiple initiatives
+
+---
+
+### Friday — Close the week and set up next week
+
+**Sprint review prep (if review is today or Monday)**
+> `/status-for-meeting sprint-review [paste full sprint board — all tickets with status]`
+
+Add demo links and qualitative notes. The output is your review agenda.
+
+**Sprint retro (if running one)**
+
+Collect team feedback async (Slack or a shared doc), then:
+> `/sprint retro [paste team feedback]`
+
+Use the structured output as a facilitation guide — don't read it aloud, use it to drive the conversation.
+
+**Release notes (if anything shipped)**
+> `/sprint release-notes [paste the tickets that shipped]`
+
+Translate technical work into user-facing language. Send to customers, post in Slack, or publish in-product.
+
+**Weekly async update (if you send one)**
+> `/status-for-meeting stakeholder [all active initiatives]`
+
+Send Friday afternoon so leadership has context before Monday.
+
+---
+
+### As-needed — React to what comes in
+
+**Feature request lands in Slack or email**
+> `/triage-requests [paste the request + current backlog context]`
+
+Get a prioritization recommendation before committing to anything.
+
+**Customer interview just finished**
+> `/interview summarize [paste transcript]`
+
+Capture insights, map to assumptions, identify the follow-up.
+
+**Someone asks "can we just add X?"**
+> `/red-team-prd` or `/pre-mortem [describe the change]`
+
+Surface the risks before agreeing.
+
+**New Jira ticket needs acceptance criteria**
+> `/jira-update ac [TICKET-ID] — [describe what done looks like]`
+
+**Anything is blocked more than 48 hours**
+> `/jira-update [TICKET-ID] blocked — [what's blocking, who needs to act, impact]`
+
+Write the blocker note and escalate the same day. Don't let blockers age.
+
+---
+
+### Weekly time budget — what Claude compresses
+
+| Task | Without Claude | With Claude |
+|---|---|---|
+| Jira updates (5 tickets) | 20 min | 5 min |
+| Stakeholder update | 30 min | 10 min |
+| Sprint review prep | 45 min | 10 min |
+| Meeting notes | 20 min | 5 min |
+| PRD first draft | 3–4 hours | 1–1.5 hours |
+| Sprint planning prep | 60 min | 15 min |
+
+**Time reclaimed per week: ~3–4 hours.** Use it for user conversations, strategic thinking, and the work only you can do.
+
+---
+
+### If you carry both PM and Project Manager responsibilities
+
+See the `pm-project-dual-role` skill for the full guidance. Short version:
+
+- **Use Claude as executor for all project work** (Jira, status reports, sprint prep, meeting notes)
+- **Use Claude as thought partner for product work** (discovery, strategy, PRDs — your judgment drives the output)
+- **Protect Tuesday and Wednesday for strategic PM work** — delivery will always fill available time unless you block it explicitly
+- **Set up at least one Claude Routine** (see `/build-routine`) to automate the Monday board digest — this alone saves 20 min/week and makes every standup better
+
+---
+
+### Command quick reference — by situation
+
+| Situation | Command |
+|---|---|
+| Preparing for standup | `/status-for-meeting standup` |
+| Sprint review presentation | `/status-for-meeting sprint-review` |
+| Stakeholder / exec update | `/status-for-meeting stakeholder` |
+| Writing a Jira ticket comment | `/jira-update` |
+| Writing acceptance criteria | `/jira-update ac [TICKET-ID]` |
+| Documenting a blocker | `/jira-update [TICKET-ID] blocked` |
+| Automate weekly Jira digest | `/build-routine` |
+| New product idea | `/discover` |
+| Writing a PRD | `/write-prd` |
+| Stress-testing a PRD | `/red-team-prd` |
+| OKR planning | `/plan-okrs` |
+| Sprint planning | `/sprint plan` |
+| Sprint retro | `/sprint retro` |
+| Release notes | `/sprint release-notes` |
+| After a meeting | `/meeting-notes` |
+| Mapping stakeholders | `/stakeholder-map` |
+| Risk analysis | `/pre-mortem` |
+| Prioritizing a backlog | `/triage-requests` |
+| After a user interview | `/interview summarize` |
+| Competitive landscape | `/competitive-analysis` |
+| AI tool rollout plan | `/plan-ai-rollout` |
+| Audit AI tool adoption | `/audit-ai-usage` |
+
+---
+
+## 2. GitHub Copilot
 
 **What you get:** skills only (no slash commands). Copilot reads the skill frameworks automatically and applies them when you describe what you need in plain language.
 
@@ -84,7 +292,7 @@ Copilot does not support slash commands. Describe the workflow steps in plain la
 
 ---
 
-## 2. Claude Code (CLI)
+## 3. Claude Code (CLI)
 
 **What you get:** full experience — skills auto-load, slash commands work, workflows chain automatically.
 
@@ -172,6 +380,9 @@ Claude runs each step of the workflow in sequence and pauses for your input wher
 **AI Adoption**
 - `/plan-ai-rollout <tool and team>` — phased rollout plan with pilot, governance, training, success metrics
 - `/audit-ai-usage <tool and period>` — audit for adoption gaps, cost waste, safety issues
+- `/build-routine <what to automate>` — design a Claude Routine or Cowork Scheduled Task with ready-to-paste prompt
+- `/jira-update <ticket ID and what happened>` — write a Jira status comment, acceptance criteria, or blocker note
+- `/status-for-meeting <standup|sprint-review|stakeholder>` — meeting-ready status report from Jira data
 
 **AI Shipping**
 - `/prototype-page <what to show>` — HTML prototype with static data + GitHub Pages deploy + migration plan
@@ -243,7 +454,7 @@ Claude runs each step of the workflow in sequence and pauses for your input wher
 
 ---
 
-## 3. Claude Cowork
+## 4. Claude Cowork
 
 **What you get:** full experience — skills auto-load, slash commands work, visual plugin browser. Recommended for non-developers.
 
@@ -298,7 +509,7 @@ Claude Cowork shows available commands as you type `/` — you can browse and se
 
 ---
 
-## 4. Microsoft Tech Stack Alternatives
+## 5. Microsoft Tech Stack Alternatives
 
 If your organization runs on Microsoft 365 and GitHub Copilot, you have four options — ordered from easiest to most powerful.
 
@@ -499,7 +710,7 @@ The assistant finds the relevant skill from the knowledge base and walks the use
 
 ---
 
-## 5. Common Workflows — Side by Side
+## 6. Common Workflows — Side by Side
 
 ### Build a product prototype for stakeholder feedback
 

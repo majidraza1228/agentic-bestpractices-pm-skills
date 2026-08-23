@@ -4,7 +4,7 @@
 
 # PM Skills Marketplace: The AI Operating System for Product Managers Adopting AI
 
-> 73 PM skills and 45 chained workflows across 10 plugins. Claude Code, Cowork, and more. From AI rollout planning and governance to discovery, strategy, execution, launch, growth, and shipping AI-built code.
+> 77 PM skills and 48 chained workflows across 10 plugins. Claude Code, Cowork, and more. From AI rollout planning and governance to discovery, strategy, execution, launch, growth, and shipping AI-built code.
 
 ![PM Skills marketplace: skills, commands, and all 10 plugins at a glance](.docs/images/plugins.png)
 

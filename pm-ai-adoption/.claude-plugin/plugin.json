@@ -16,7 +16,11 @@
     "ai-governance",
     "ai-safety",
     "enterprise-ai",
-    "change-management"
+    "change-management",
+    "routines",
+    "managed-agents",
+    "automation",
+    "scheduled-tasks"
   ],
   "license": "MIT"
 }
