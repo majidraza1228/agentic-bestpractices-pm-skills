@@ -250,19 +250,232 @@ Just describe what you want. Copilot reads the skill files automatically via `.g
 
 > "Write a Jira status comment for ticket AUTH-23 — design review is done, waiting on API spec from the platform team, estimated Thursday."
 
-**Option B — Microsoft Copilot web, M365 Copilot, or Copilot Studio**
+**Option B — Microsoft Copilot web, M365 Copilot (Teams / Word / Outlook), or Copilot Studio**
 
-Find the skill file on GitHub, open it (click Raw), copy the content, paste it into your chat, then add your request at the end.
-
-```
-[paste full SKILL.md content here]
+No GitHub repo access required. You paste the skill content directly into your chat session as context, then add your request. Works on any Copilot surface.
 
 ---
 
-Using the framework above: [your request]
+#### Step 1 — Get the skill content from GitHub
+
+1. Go to `github.com/majidraza1228/agentic-bestpractices-pm-skills`
+2. Navigate to the skill folder — e.g. `pm-execution/skills/create-prd/`
+3. Click `SKILL.md`
+4. Click the **Raw** button (top-right of the file view)
+5. Select all (`Ctrl+A` / `Cmd+A`) and copy
+
+The skill files to use for each daily task are listed in the day-by-day tables below. Bookmark the ones you use most.
+
+**Shortcut — direct Raw URLs follow this pattern:**
+```
+https://raw.githubusercontent.com/majidraza1228/agentic-bestpractices-pm-skills/main/[plugin]/skills/[skill]/SKILL.md
 ```
 
-The skill files to paste for each daily task are listed in the table below.
+Example:
+```
+https://raw.githubusercontent.com/majidraza1228/agentic-bestpractices-pm-skills/main/pm-execution/skills/create-prd/SKILL.md
+```
+
+Open the URL, select all, copy.
+
+---
+
+#### Step 2 — Paste into your Copilot surface and add your request
+
+Use this structure every time:
+
+```
+[paste the full SKILL.md content here]
+
+---
+
+Using the framework above: [your specific request and context]
+```
+
+The more context you add after the divider, the better the output. Don't just say "write a PRD" — say "write a PRD for a bulk CSV export feature in a B2B analytics SaaS, 500 enterprise customers, primary pain point is manual data extraction taking 4+ hours per week."
+
+---
+
+#### Surface-specific instructions
+
+**Microsoft Copilot web — copilot.microsoft.com**
+
+1. Open a new chat at [copilot.microsoft.com](https://copilot.microsoft.com)
+2. Paste the skill content + your request into the message box
+3. Send
+
+Each chat is a fresh session — paste the skill again for each new task. Use the browser's history to re-open recent chats if you need to continue a workflow.
+
+**Tip:** if the paste is long and the text box shrinks, click the expand icon (top-right of the input box) to get a full editor view.
+
+---
+
+**Microsoft Teams Copilot (M365 Copilot in Teams)**
+
+Two ways to use skills in Teams:
+
+*Option 1 — Copilot app in Teams sidebar*
+1. Open the Copilot app in the left sidebar
+2. Start a new chat
+3. Paste skill content + request into the message box
+4. Send
+
+*Option 2 — Reference a skill file from SharePoint (if your org has uploaded them)*
+1. Upload the skill files to SharePoint (see Section 5 — Microsoft Tech Stack Alternatives for full steps)
+2. In Teams Copilot chat, type `/` and reference the file:
+```
+/[PM Skills/jira-workflow.md] Write a Jira status comment for AUTH-23 — design review done, waiting on platform team API spec, ETA Thursday.
+```
+
+**Meeting recap → action items in Teams:**
+After a Teams meeting, Copilot automatically generates a recap. To convert it into structured meeting notes using the `summarize-meeting` skill:
+1. Open the meeting recap in Teams
+2. Copy the transcript or summary
+3. Open Copilot app → paste `summarize-meeting/SKILL.md` content + transcript
+4. Send
+
+---
+
+**Microsoft Word Copilot**
+
+Best for longer documents: PRDs, stakeholder updates, rollout plans.
+
+1. Open a new Word document
+2. Click **Copilot** in the ribbon (Home tab)
+3. In the Copilot panel, paste skill content + request:
+
+```
+[paste create-prd/SKILL.md content]
+
+---
+
+Write a PRD for a smart notification system that reduces alert fatigue in Slack-heavy B2B SaaS teams.
+```
+
+4. Copilot drafts the document inline
+5. Edit directly in Word — ask Copilot to revise specific sections
+
+**Tip for long PRDs:** generate one section at a time. After the first draft, prompt: "Now expand section 3 (user stories) with 5 specific user stories in the format: As a [role], I want [goal], so that [outcome]."
+
+**Referencing a SharePoint skill file from Word:**
+```
+Using the PRD framework at [link to SKILL.md in SharePoint], write a PRD for [feature].
+```
+
+---
+
+**Outlook Copilot**
+
+Best for: stakeholder update emails, blocker escalation notes, release announcement drafts.
+
+1. Click **New Email** → **Copilot** icon in the ribbon
+2. Click **Draft with Copilot**
+3. Describe what you want (paste skill content first if the output needs structure):
+
+For a stakeholder update email:
+```
+[paste jira-workflow/SKILL.md — Stakeholder Update Format section]
+
+---
+
+Write a stakeholder update email for the Q3 authentication initiative. Status: At Risk. Completed: login redesign. In progress: password reset flow. Blocker: waiting on platform team API spec since Monday. Decision needed: should we descope the SSO integration to protect the Sept 15 deadline?
+```
+
+4. Review the draft, edit inline, send
+
+**Tip:** for recurring weekly updates, save your best prompt as a Word template or Quick Parts snippet so you only need to update the status details each week.
+
+---
+
+**Copilot Studio (custom PM assistant)**
+
+If your org has set up a Copilot Studio assistant with this repo as a knowledge source (see Section 5 for setup), skills load automatically — no paste needed.
+
+Just describe what you want:
+```
+Write a PRD for a smart notification system that reduces alert fatigue.
+```
+```
+Run product discovery on a new AI writing tool idea.
+```
+```
+Write a Jira status comment for the login redesign ticket — design review done, waiting on API spec.
+```
+
+If the assistant doesn't seem to be applying the right framework, be explicit:
+```
+Using the Jira workflow skill, write a stakeholder status update for our Q3 initiative.
+```
+
+**To check if the skill loaded:** ask "What frameworks do you have for writing PRDs?" — a correctly configured assistant will describe the skill's approach, not give a generic answer.
+
+---
+
+#### Step 3 — Handle multi-step workflows manually
+
+Unlike Claude Code/Cowork, Copilot doesn't chain workflow steps automatically. For commands that have multiple steps (like `/discover` or `/sprint`), run each step as a separate message in the same chat session:
+
+**Example — running discovery in Copilot:**
+
+Message 1:
+```
+[paste pm-product-discovery brainstorm-ideas-new/SKILL.md]
+
+---
+
+Brainstorm product ideas for an AI writing tool targeting non-native English speakers. Give me 10 ideas across different user segments.
+```
+
+Message 2 (same chat, no need to re-paste — context is retained):
+```
+Now identify the riskiest assumptions for the top 3 ideas. Use the assumption identification framework (Value, Usability, Viability, Feasibility).
+```
+
+Message 3:
+```
+Prioritize those assumptions by impact and ease of testing. Which 3 should we test first?
+```
+
+Message 4:
+```
+Design one experiment for each of those 3 assumptions. Include hypothesis, method, and success criteria.
+```
+
+**Key rule:** paste the skill once at the start of the session. After that, Copilot retains context for the rest of the conversation — don't re-paste for follow-up steps.
+
+---
+
+#### Step 4 — Save your most-used skills for quick reuse
+
+Pasting skill content manually every session gets tedious. Three ways to solve it:
+
+**OneNote or Notion snippet library**
+Create a page called "PM Skills — Paste Templates". For each skill you use weekly, save:
+- Skill name
+- Raw content (pasted once)
+- Your standard prompt for that skill
+
+When you need it, open the page, copy the block, paste into Copilot. Takes 10 seconds instead of navigating GitHub.
+
+**Word Quick Parts (Outlook / Word users)**
+1. Paste a skill prompt block into a Word doc
+2. Select it → Insert → Quick Parts → Save Selection to Quick Part Gallery
+3. Give it a name (e.g. "PM-PRD-Skill")
+4. Next time: Insert → Quick Parts → select it — it inserts instantly
+
+**SharePoint skill library (team-wide)**
+Upload the `SKILL.md` files your team uses most to a SharePoint folder. Share the folder link with your PM team. Anyone can open, click Raw, copy, and paste — no GitHub account needed.
+
+The skill files to start with for a Copilot-only PM team:
+- `pm-execution/skills/create-prd/SKILL.md`
+- `pm-ai-adoption/skills/jira-workflow/SKILL.md`
+- `pm-execution/skills/summarize-meeting/SKILL.md`
+- `pm-execution/skills/sprint-plan/SKILL.md`
+- `pm-ai-adoption/skills/pm-project-dual-role/SKILL.md`
+
+---
+
+The skill files to paste for each daily task are listed in the tables below.
 
 ---
 
