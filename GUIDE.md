@@ -17,7 +17,19 @@ Step-by-step instructions for GitHub Copilot, Claude Code, Claude Cowork, and Mi
 
 ## 1. PM Daily Workflow
 
-This section shows how a PM uses the marketplace in practice — day by day, meeting by meeting, across both product and project work. No installation prerequisite — pick any tool from sections 2–5.
+This section shows how a PM uses the marketplace in practice — day by day, meeting by meeting, across both product and project work. No installation prerequisite — pick any tool from sections 2–6.
+
+**Which tool do you have?**
+
+| Situation | What to use |
+|---|---|
+| Claude Code or Claude Cowork | Use `/command` syntax throughout this section |
+| GitHub Copilot only (no Claude, no Codex) | See [Copilot-only workflow](#copilot-only-workflow) below |
+| Microsoft 365 Copilot (Teams, Word, Outlook) | See [Copilot-only workflow](#copilot-only-workflow) below |
+| Copilot Studio (custom assistant) | Natural language — same as Copilot-only |
+| Mix of tools | Use Claude for commands, Copilot for chat-style questions |
+
+The workflow below uses Claude Code / Cowork `/command` syntax. The [Copilot-only workflow](#copilot-only-workflow) section at the end of this page has the natural language equivalents for every step.
 
 ---
 
@@ -219,6 +231,102 @@ See the `pm-project-dual-role` skill for the full guidance. Short version:
 | Competitive landscape | `/competitive-analysis` |
 | AI tool rollout plan | `/plan-ai-rollout` |
 | Audit AI tool adoption | `/audit-ai-usage` |
+
+---
+
+### Copilot-only workflow
+
+**For GitHub Copilot, Microsoft 365 Copilot, or Copilot Studio — no Claude or Codex required.**
+
+Everything in this marketplace works with Copilot. There are no slash commands — you describe the workflow in plain language instead. The skill files are loaded either automatically (if you're in this repo with Copilot Chat) or by pasting the relevant `SKILL.md` content into your chat.
+
+#### How to run any workflow in Copilot
+
+**Option A — You're in this repo with GitHub Copilot Chat (VS Code / JetBrains)**
+
+Just describe what you want. Copilot reads the skill files automatically via `.github/copilot-instructions.md`.
+
+> "Run full product discovery on an AI writing tool for non-native English speakers — brainstorm ideas, identify the riskiest assumptions, prioritize them, design experiments. Pause between each step."
+
+> "Write a Jira status comment for ticket AUTH-23 — design review is done, waiting on API spec from the platform team, estimated Thursday."
+
+**Option B — Microsoft Copilot web, M365 Copilot, or Copilot Studio**
+
+Find the skill file on GitHub, open it (click Raw), copy the content, paste it into your chat, then add your request at the end.
+
+```
+[paste full SKILL.md content here]
+
+---
+
+Using the framework above: [your request]
+```
+
+The skill files to paste for each daily task are listed in the table below.
+
+---
+
+#### Monday — Copilot natural language equivalents
+
+| Task | What to say in Copilot | Skill file to paste (non-Copilot-Chat) |
+|---|---|---|
+| Check sprint board status | "Review my sprint board and classify tickets as On Track, At Risk, or Blocked. Here's the board: [paste]" | `pm-ai-adoption/skills/jira-workflow/SKILL.md` |
+| Prepare standup | "Write my standup update. Completed: [list]. Working on: [list]. Blockers: [list]." | `pm-ai-adoption/skills/jira-workflow/SKILL.md` |
+| Weekly stakeholder update | "Write a stakeholder status update for [initiative]. Status: [On Track/At Risk]. Tickets: [paste]. Include a decisions-needed section." | `pm-ai-adoption/skills/jira-workflow/SKILL.md` |
+| Jira ticket comment | "Write a Jira status comment for [TICKET-ID]. What happened: [describe]. Next step: [describe]. Blocker: [if any]." | `pm-ai-adoption/skills/jira-workflow/SKILL.md` |
+| Acceptance criteria | "Write acceptance criteria for this ticket: [paste description]. Done means: [describe]. Edge cases: [list]. Format as bullet list." | `pm-ai-adoption/skills/jira-workflow/SKILL.md` |
+| Sprint planning prep | "Plan a [2-week] sprint for a team of [N] engineers. Sprint goal: [goal]. Backlog candidates: [paste]. Estimate capacity, select stories, flag risks." | `pm-execution/skills/sprint-plan/SKILL.md` |
+
+#### Tuesday / Wednesday — Copilot natural language equivalents
+
+| Task | What to say in Copilot | Skill file to paste |
+|---|---|---|
+| Write a PRD | "Write a comprehensive PRD for [feature + problem statement + audience]. Use an 8-section structure: problem, goals, user stories, requirements, out of scope, metrics, risks, open questions." | `pm-execution/skills/create-prd/SKILL.md` |
+| Stress-test a PRD | "Adversarially stress-test this PRD. Find the weakest assumptions, biggest risks, and cheapest tests to validate each. [paste PRD]" | `pm-execution/skills/strategy-red-team/SKILL.md` |
+| Run discovery | "Run full product discovery on [idea]. Step 1: brainstorm ideas. Step 2: identify the riskiest assumptions. Step 3: prioritize by impact and ease of testing. Step 4: design experiments. Pause between steps." | `pm-product-discovery/commands/discover.md` |
+| Define metrics | "Design a product metrics dashboard for [product area]. Include North Star metric, input metrics, alert thresholds, and measurement approach." | `pm-product-discovery/skills/metrics-dashboard/SKILL.md` |
+| Update roadmap | "Convert this feature roadmap to an outcome-focused roadmap. Map each feature to a user or business outcome. [paste roadmap]" | `pm-execution/skills/outcome-roadmap/SKILL.md` |
+| Competitive landscape | "Run a competitive analysis on [market]. Include strengths and weaknesses per competitor, differentiation gaps, and positioning opportunities." | `pm-market-research/skills/competitor-analysis/SKILL.md` |
+
+#### Thursday — Copilot natural language equivalents
+
+| Task | What to say in Copilot | Skill file to paste |
+|---|---|---|
+| Pre-meeting status | "Write a stakeholder status report for [initiative]. Overall status: [RAG]. Here are the tickets: [paste]. Include open risks and one decision needed from leadership." | `pm-ai-adoption/skills/jira-workflow/SKILL.md` |
+| Meeting notes | "Summarize this meeting transcript into structured notes: decisions made, action items with owners, open questions, and a 3-sentence summary. [paste transcript]" | `pm-execution/skills/summarize-meeting/SKILL.md` |
+| Stakeholder map | "Map the stakeholders for [project]. Use a Power × Interest grid. For each stakeholder, describe their interest, communication preference, and what I need from them." | `pm-execution/skills/stakeholder-map/SKILL.md` |
+
+#### Friday — Copilot natural language equivalents
+
+| Task | What to say in Copilot | Skill file to paste |
+|---|---|---|
+| Sprint review report | "Write a sprint review report. Committed: [N] points. Completed: [list tickets + status]. Not shipped: [list + reasons]. Include velocity, what slowed us, and one thing to change next sprint." | `pm-ai-adoption/skills/jira-workflow/SKILL.md` |
+| Sprint retro | "Facilitate a Start/Stop/Continue retrospective from this team feedback: [paste]. Identify themes, root causes, and 2–3 action items with owners." | `pm-execution/skills/retro/SKILL.md` |
+| Release notes | "Write user-facing release notes from these tickets: [paste]. Categorize as New Features, Improvements, Bug Fixes. Lead with user benefits, not technical descriptions." | `pm-execution/skills/release-notes/SKILL.md` |
+| Weekly async update | "Write a stakeholder update covering all active initiatives. Here's the status for each: [paste per-initiative summaries]. RAG status per initiative, key risks, decisions needed." | `pm-ai-adoption/skills/jira-workflow/SKILL.md` |
+
+#### As-needed — Copilot natural language equivalents
+
+| Situation | What to say in Copilot | Skill file to paste |
+|---|---|---|
+| Feature request arrives | "Prioritize this feature request against my current backlog. Request: [describe]. Current top priorities: [list]. Evaluate by impact, effort, strategic fit, and risk." | `pm-product-discovery/skills/analyze-feature-requests/SKILL.md` |
+| After a user interview | "Summarize this interview using JTBD framework. Identify satisfaction signals, pain points, jobs-to-be-done, and 2–3 follow-up questions. [paste transcript]" | `pm-product-discovery/skills/summarize-interview/SKILL.md` |
+| Something is blocked | "Write a Jira blocker note for [TICKET-ID]. Blocked by: [what]. Since: [date]. What's needed to unblock: [describe]. Impact if not resolved by [date]: [describe]." | `pm-ai-adoption/skills/jira-workflow/SKILL.md` |
+| "Can we just add X?" | "Run a pre-mortem on this proposed change: [describe change]. Identify Tigers (high-probability risks), Paper Tigers (perceived but unlikely risks), and Elephants (risks no one wants to name)." | `pm-execution/skills/pre-mortem/SKILL.md` |
+| Need OKRs for next quarter | "Write team-level OKRs for [team name] aligned to [company objective]. Generate 3 objectives with 2–3 key results each. KRs should be measurable outcomes, not tasks." | `pm-execution/skills/brainstorm-okrs/SKILL.md` |
+
+#### Limitations vs Claude Code / Cowork
+
+| Feature | Copilot (GitHub / M365) | Claude Code / Cowork |
+|---|---|---|
+| Slash commands (`/write-prd`) | No — use natural language | Yes |
+| Skills auto-load | Partial (Copilot Chat in this repo) / Manual paste (M365) | Full auto-load |
+| Chained multi-step workflows | Manual — prompt each step separately | Automatic |
+| Claude Routines (scheduled automation) | No — Routines require a Claude plan | Yes (Pro/Max/Team/Enterprise) |
+| Managed Agents | No | Yes (Enterprise / platform) |
+| Jira automation | No | Yes (via Managed Agent with Jira MCP) |
+
+**Bottom line for Copilot-only orgs:** every analytical skill and workflow in this marketplace is available — strategy, discovery, PRDs, retros, stakeholder maps, meeting notes, Jira updates. The automation layer (Routines, Managed Agents, scheduled digests) requires a Claude plan. For orgs that want to start and stay on Copilot, the manual workflow above covers the full PM week.
 
 ---
 

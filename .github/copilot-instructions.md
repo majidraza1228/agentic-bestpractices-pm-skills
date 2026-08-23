@@ -1,6 +1,6 @@
 # PM Skills Marketplace — Copilot Instructions
 
-This repository is a marketplace of 10 PM Skills plugins (73 skills, 45 commands) that bring structured product-management frameworks to AI assistants. It is built for PMs leading AI adoption inside their organizations.
+This repository is a marketplace of 10 PM Skills plugins (77 skills, 48 commands) that bring structured product-management frameworks to AI assistants. It is built for PMs leading AI adoption inside their organizations.
 
 ## How to use this with Copilot
 
@@ -32,6 +32,10 @@ If the user's intent isn't an exact match, use the indexes below to find the clo
 | AI safety & governance — acceptable use policies, data classification, DLP, incident response, compliance | `pm-ai-adoption/skills/ai-safety-governance/SKILL.md` |
 | AI success metrics — KPIs, breadth/quality/productivity measurement, ROI calculation, OKR templates | `pm-ai-adoption/skills/ai-success-metrics/SKILL.md` |
 | AI token optimization — prompt efficiency, context management, model selection, team-level cost budgeting | `pm-ai-adoption/skills/ai-token-optimization/SKILL.md` |
+| Claude Routines — surface selection (Routines vs Cowork vs Managed Agents), prompt formula, stateless memory pattern, failure modes | `pm-ai-adoption/skills/claude-routines/SKILL.md` |
+| Managed Agents design — agent spec, MCP connections, engineer handoff checklist, guardrails for team-scale automation | `pm-ai-adoption/skills/managed-agents-design/SKILL.md` |
+| Jira workflow — write ticket updates/AC/blocker notes, set up automated Jira tracking, generate meeting-ready reports from Jira data | `pm-ai-adoption/skills/jira-workflow/SKILL.md` |
+| PM + Project Manager dual role — split work between hats, protect strategic time, automate delivery tasks with Claude | `pm-ai-adoption/skills/pm-project-dual-role/SKILL.md` |
 
 ### pm-ai-shipping
 | Skill | Path |
@@ -148,6 +152,9 @@ Commands are multi-step workflows. Always read the command file before running.
 |---------|-------------|------|
 | `/plan-ai-rollout` | Phased AI tool rollout plan — pilot, governance, training, success metrics | `pm-ai-adoption/commands/plan-ai-rollout.md` |
 | `/audit-ai-usage` | Audit AI tool usage for adoption gaps, cost waste, safety issues | `pm-ai-adoption/commands/audit-ai-usage.md` |
+| `/build-routine` | Design a Claude Routine or Cowork Scheduled Task with ready-to-paste prompt and setup checklist | `pm-ai-adoption/commands/build-routine.md` |
+| `/jira-update` | Write a Jira ticket status comment, acceptance criteria, or blocker note from a verbal description | `pm-ai-adoption/commands/jira-update.md` |
+| `/status-for-meeting` | Generate a meeting-ready status report from Jira data — standup, sprint review, or stakeholder update | `pm-ai-adoption/commands/status-for-meeting.md` |
 | `/prototype-page` | Generate HTML prototype with static data + GitHub Pages deploy + migration plan | `pm-ai-shipping/commands/prototype-page.md` |
 | `/ship-check` | Full shipping sequence: document → audit → test map → shipping packet | `pm-ai-shipping/commands/ship-check.md` |
 | `/document-app` | Reverse-engineer codebase into reviewer-ready system docs | `pm-ai-shipping/commands/document-app.md` |
